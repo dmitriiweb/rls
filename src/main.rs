@@ -1,3 +1,7 @@
+use config::Config;
+pub mod config;
+
 fn main() {
-    println!("Hello, world!");
+    let config = Config::new();
+    println!("{:#?}", config);
 }
