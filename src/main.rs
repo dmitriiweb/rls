@@ -3,6 +3,8 @@ use config::Config;
 pub mod config;
 pub mod renders;
 
+use renders::Render;
+
 fn main() {
     let config = Config::new();
     if config.list {
