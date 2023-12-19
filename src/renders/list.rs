@@ -1,6 +1,5 @@
 use crate::config::Config;
 
-
 pub struct List<'a> {
     config: &'a Config,
 }

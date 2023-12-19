@@ -1,6 +1,5 @@
-pub mod table;
 pub mod list;
+pub mod table;
 
-pub use table::Table;
 pub use list::List;
-
+pub use table::Table;
