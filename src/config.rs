@@ -11,6 +11,7 @@ pub struct Config {
     pub dir_first: bool,
     pub sort_by: SortBy,
     pub all: bool,
+    pub list: bool,
 }
 
 impl Config {
@@ -28,6 +29,13 @@ impl Config {
                     .short('a')
                     .num_args(0)
                     .help("Show hidden files and folders"),
+            )
+            .arg(
+                clap::Arg::new("list")
+                    .long("list")
+                    .short('l')
+                    .num_args(0)
+                    .help("Show list view"),
             )
             .arg(
                 clap::Arg::new("colors")
@@ -62,12 +70,14 @@ impl Config {
             _ => panic!("Invalid sort-by value"),
         };
         let all = matches.get_one::<bool>("all").unwrap_or(&false);
+        let list = matches.get_one::<bool>("list").unwrap_or(&false);
         Config {
             path,
             colors: *colors,
             dir_first: *dir_first,
             sort_by,
             all: *all,
+            list: *list,
         }
     }
 }
